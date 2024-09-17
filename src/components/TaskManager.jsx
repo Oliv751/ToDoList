@@ -95,35 +95,39 @@ const TaskManager = () => {
   };
 
   return (
-    <>
-      <h3>Gestionnaire de tâches</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="inputTask"
-          placeholder="Nouvelle tâche..."
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-        />
-        <MdPlaylistAddCircle
-          className="add-task-button"
-          onClick={handleSubmit}
-          role="button"
-          aria-label="Ajouter une tâche"
-        />
-      </form>
-      <TaskBoard tasks={tasks} onTaskUpdate={handleTaskUpdate} />
-      {lastDeletedTask && (
-        <div className="undo-notification">
-          <span>Tâche supprimée : &quot;{lastDeletedTask.text}&quot;</span>
-          <LiaUndoAltSolid className="undo-button" onClick={undoDelete} />
-          <RiCloseLargeLine
-            className="task-remove-button"
-            onClick={() => setLastDeletedTask(null)}
+    <main>
+      <section className="form-section">
+        <h1>Gestionnaire de tâches</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="inputTask"
+            placeholder="Nouvelle tâche..."
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
           />
-        </div>
-      )}
-    </>
+          <MdPlaylistAddCircle
+            className="add-task-button"
+            onClick={handleSubmit}
+            role="button"
+            aria-label="Ajouter une tâche"
+          />
+        </form>
+      </section>
+      <section className="taskBoard-section">
+        <TaskBoard tasks={tasks} onTaskUpdate={handleTaskUpdate} />
+        {lastDeletedTask && (
+          <div className="undo-notification">
+            <span>Tâche supprimée : &quot;{lastDeletedTask.text}&quot;</span>
+            <LiaUndoAltSolid className="undo-button" onClick={undoDelete} />
+            <RiCloseLargeLine
+              className="task-remove-button"
+              onClick={() => setLastDeletedTask(null)}
+            />
+          </div>
+        )}
+      </section>
+    </main>
   );
 };
 
