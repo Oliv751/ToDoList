@@ -1,6 +1,17 @@
 import PropTypes from "prop-types";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import TaskList from "./TaskList";
+import {
+  FaClipboardList,
+  FaHourglassStart,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+const statusLabels = {
+  created: { text: "À faire", icon: <FaClipboardList /> },
+  inProgress: { text: "En cours", icon: <FaHourglassStart /> },
+  completed: { text: "Terminées", icon: <FaCheckCircle /> },
+};
 
 const TaskBoard = ({ tasks, onTaskUpdate }) => {
   const onDragEnd = (result) => {
@@ -34,7 +45,10 @@ const TaskBoard = ({ tasks, onTaskUpdate }) => {
                 {...provided.droppableProps}
                 className={`task-column ${status}`}
               >
-                <h2>{status.charAt(0).toUpperCase() + status.slice(1)}</h2>
+                <h2>
+                  {statusLabels[status].icon}
+                  {statusLabels[status].text}
+                </h2>
                 <TaskList tasks={tasks[status]} onTaskUpdate={onTaskUpdate} />
                 {provided.placeholder}
               </div>

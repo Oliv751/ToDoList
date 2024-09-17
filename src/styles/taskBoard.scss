@@ -1,0 +1,16 @@
+.task-board-section {
+  background-color: burlywood;
+  padding: 1em;
+
+  .task-board {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 1em;
+    color: $color-primary;
+
+    .task-column {
+      background-color: antiquewhite;
+    }
+  }
+}

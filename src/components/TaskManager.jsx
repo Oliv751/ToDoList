@@ -114,7 +114,7 @@ const TaskManager = () => {
           />
         </form>
       </section>
-      <section className="taskBoard-section">
+      <section className="task-board-section">
         <TaskBoard tasks={tasks} onTaskUpdate={handleTaskUpdate} />
         {lastDeletedTask && (
           <div className="undo-notification">
