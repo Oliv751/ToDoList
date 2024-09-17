@@ -1,0 +1,15 @@
+#root {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.task-remove-button {
+  // color: #000; // Couleur par défaut
+
+  &:hover {
+    color: #f00; // Couleur au survol
+    border-color: #f00;
+  }
+}

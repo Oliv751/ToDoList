@@ -1,0 +1,60 @@
+:root {
+  font-family: $font-family;
+  line-height: 1.5;
+  font-weight: $font-weight;
+
+  color-scheme: light dark;
+  color: $color-text-light;
+  background-color: $color-background;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: $color-primary;
+  text-decoration: inherit;
+
+  &:hover {
+    color: $color-primary-hover;
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+input {
+  @include input-style;
+}
+
+button {
+  @include button-style;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: $color-text-dark;
+    background-color: $color-background-light;
+  }
+
+  a:hover {
+    color: $color-primary-hover;
+  }
+
+  button {
+    background-color: $color-background-light;
+  }
+}
