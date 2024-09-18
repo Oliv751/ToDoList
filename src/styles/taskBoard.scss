@@ -18,7 +18,6 @@
 
     .task-column {
       position: relative;
-      min-width: 100%;
       overflow: hidden;
       word-wrap: break-word;
       backdrop-filter: blur(10px);
@@ -82,9 +81,9 @@
 @media (min-width: 600px) {
   .task-board-section {
     .task-board {
-      flex-direction: row !important;
+      flex-direction: row;
       .task-column {
-        min-width: 15rem;
+        flex: 1; /* Assure que les colonnes prennent une part égale de l'espace */
       }
     }
   }
@@ -94,7 +93,6 @@
   .task-board-section {
     .task-board {
       .task-column {
-        min-width: 20rem;
       }
     }
   }
