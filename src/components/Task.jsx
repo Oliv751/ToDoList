@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 
 const Task = ({ task, onRemove, onToggleCompletion }) => {
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
+
   return (
     <div className="task">
       <span
@@ -8,15 +12,15 @@ const Task = ({ task, onRemove, onToggleCompletion }) => {
         className={`task-text ${task.completed ? "completed" : ""}`}
         onClick={onToggleCompletion}
       >
-        {task.text}
-        <input
-          type="checkbox"
-          className="task-checkbox"
-          checked={task.completed}
-          readOnly
-          onChange={onToggleCompletion}
-        />
+        {capitalizeFirstLetter(task.text)}
       </span>
+      <input
+        type="checkbox"
+        className="task-checkbox"
+        checked={task.completed}
+        readOnly
+        onChange={onToggleCompletion}
+      />
       <button className="task-remove-button" onClick={onRemove}>
         x
       </button>

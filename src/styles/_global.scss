@@ -13,6 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+ul,
+ol {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
 a {
   font-weight: 500;
   color: $color-primary;
@@ -39,6 +45,7 @@ input {
 }
 
 button {
+  padding: 0;
   @include button-style;
 }
 

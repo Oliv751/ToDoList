@@ -1,0 +1,30 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+
+  .task-item {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1em;
+    .task {
+      display: flex;
+      align-items: center;
+      //   background-color: $color-button-dark;
+
+      .task-text {
+        color: blueviolet;
+        padding-left: 0.6em;
+        border-radius: $border-radius;
+        // background-color: $color-button-dark;
+      }
+      .task-checkbox {
+        @include input-style;
+        // margin-top: 0.4em;
+      }
+      .task-remove-button {
+        @include button-style;
+      }
+    }
+  }
+}
