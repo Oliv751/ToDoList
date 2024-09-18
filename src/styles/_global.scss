@@ -1,5 +1,4 @@
 :root {
-  font-size: $font-size-base;
   font-family: $font-family;
   line-height: 1.5;
   font-weight: $font-weight;
@@ -14,53 +13,46 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  font-weight: 500;
+  color: $color-primary;
+  text-decoration: inherit;
+
+  &:hover {
+    color: $color-primary-hover;
+  }
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
 
-  h1 {
-    font-size: 2.2em;
-    line-height: 1.2;
+h1 {
+  font-size: 1.5em;
+  line-height: 1.1;
+}
+
+input {
+  @include input-style;
+}
+
+button {
+  @include button-style;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: $color-text-dark;
+    background-color: $color-background-light;
   }
 
-  h2 {
-    font-size: 1.3em;
-    line-height: 1.2;
-  }
-
-  input {
-    @include input-style;
+  a:hover {
+    color: $color-primary-hover;
   }
 
   button {
-    @include button-style;
-  }
-
-  a {
-    font-weight: 500;
-    color: $color-primary;
-    text-decoration: inherit;
-
-    &:hover {
-      color: $color-primary-hover;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: $color-text-dark;
-      background-color: $color-background-light;
-    }
-
-    a:hover {
-      color: $color-primary-hover;
-    }
-
-    button {
-      background-color: $color-background-light;
-    }
+    background-color: $color-background-light;
   }
 }

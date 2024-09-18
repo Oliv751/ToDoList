@@ -6,6 +6,7 @@ import {
   FaHourglassStart,
   FaCheckCircle,
 } from "react-icons/fa";
+import wallpaper1 from "../assets/wallpaper1.webm";
 
 const statusLabels = {
   created: { text: "À faire", icon: <FaClipboardList /> },
@@ -45,10 +46,16 @@ const TaskBoard = ({ tasks, onTaskUpdate }) => {
                 {...provided.droppableProps}
                 className={`task-column ${status}`}
               >
-                <h2>
-                  {statusLabels[status].icon}
-                  {statusLabels[status].text}
-                </h2>
+                <h3>
+                  <span className="h3-icon">{statusLabels[status].icon}</span>
+                  <span className="h3-text">{statusLabels[status].text}</span>
+                </h3>
+                <div className="video-container">
+                  <video autoPlay muted loop playsInline>
+                    <source src={wallpaper1} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
                 <TaskList tasks={tasks[status]} onTaskUpdate={onTaskUpdate} />
                 {provided.placeholder}
               </div>

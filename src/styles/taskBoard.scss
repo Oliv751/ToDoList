@@ -1,16 +1,101 @@
 .task-board-section {
-  background-color: burlywood;
-  padding: 1em;
+  width: 90%;
+  margin: auto;
 
   .task-board {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 1em;
     padding: 1em;
-    color: $color-primary;
+    max-width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background: linear-gradient(
+      135deg,
+      rgb(222, 208, 189) 0%,
+      rgb(200, 200, 141) 100%
+    );
 
     .task-column {
-      background-color: antiquewhite;
+      position: relative;
+      min-width: 100%;
+      overflow: hidden;
+      word-wrap: break-word;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3em;
+        line-height: 1.1;
+        height: 2em;
+
+        .h3-icon {
+          color: rgb(174, 174, 95);
+        }
+
+        .h3-text {
+          color: rgb(174, 174, 95);
+          margin-left: 0.3em;
+          margin-bottom: 0.1em;
+        }
+      }
+
+      &:nth-child(1) {
+        h3 {
+          .h3-text {
+            margin-bottom: 0.05em;
+          }
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        h3 {
+          .h3-text {
+            margin-bottom: 0.2em;
+          }
+        }
+      }
+
+      .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* S'assurer que la vidéo est derrière le contenu */
+
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Pour remplir toute la colonne */
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .task-board-section {
+    .task-board {
+      flex-direction: row !important;
+      .task-column {
+        min-width: 15rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .task-board-section {
+    .task-board {
+      .task-column {
+        min-width: 20rem;
+      }
     }
   }
 }
